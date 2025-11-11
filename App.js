@@ -1,11 +1,65 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import{ useState } from "react";
+import { View, Text, Button, Modal, TouchableOpacity, StyleSheet } from "react-native";
+
+import IMCCalculator from "./features/imc/index.jsx"
+import TemperatureConverter from "./features/temperature/index.jsx"
+import RandomQuote from "./features/frases/index.jsx"
+import TodoList from "./features/todolist";""
 
 export default function App() {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [componenteAtivo, setComponenteAtivo] = useState(null);
+
+  const microApps = [
+    { nome: "Calculadora de IMC", componente: 
+      IMCCalculator
+     },
+    { nome: "Conversor de Temperatura", componente: TemperatureConverter },
+    { nome: "Gerador de Frases", componente: RandomQuote },
+    { nome: "To-Do List", componente: TodoList },
+  ];
+
+  const abrirMicroApp = (Componente) => {
+  
+
+    setComponenteAtivo(() => Componente);
+    setModalVisible(true);
+  };
+
+  const fecharModal = () => {
+    setModalVisible(false);
+    setComponenteAtivo(null);
+  };
+
+  const ComponenteAtivo = componenteAtivo;
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.titulo}>🧩 MicroApps</Text>
+
+      {microApps.map((app, index) => (
+        <TouchableOpacity
+          key={index}
+          style={styles.botao}
+          onPress={() => abrirMicroApp(app.componente)}
+        >
+          <Text style={styles.textoBotao}>{app.nome}</Text>
+        </TouchableOpacity>
+      ))}
+
+      <Modal
+        animationType="slide"
+        visible={modalVisible}
+        onRequestClose={fecharModal}
+      >
+        <View style={styles.modalContainer}>
+          <TouchableOpacity style={styles.fecharBotao} onPress={fecharModal}>
+            <Text style={styles.fecharTexto}>Fechar</Text>
+          </TouchableOpacity>
+        
+          {ComponenteAtivo && <ComponenteAtivo />}
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -13,8 +67,40 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+  },
+  titulo: {
+    fontSize: 26,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  botao: {
+    backgroundColor: "#007bff",
+    padding: 12,
+    marginVertical: 8,
+    borderRadius: 8,
+    width: "80%",
+    alignItems: "center",
+  },
+  textoBotao: {
+    color: "#fff",
+    fontSize: 16,
+  },
+  modalContainer: {
+    flex: 1,
+    padding: 20,
+    paddingTop: 50,
+  },
+  fecharBotao: {
+    backgroundColor: "#dc3545",
+    alignSelf: "flex-end",
+    padding: 8,
+    borderRadius: 5,
+  },
+  fecharTexto: {
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
