@@ -5,7 +5,7 @@ import IMCCalculator from "./features/imc/index.jsx"
 import TemperatureConverter from "./features/temperature/index.jsx"
 import RandomQuote from "./features/frases/index.jsx"
 import TodoList from "./features/todolist";""
-
+import { styles } from "./features/style.js";
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
   const [componenteAtivo, setComponenteAtivo] = useState(null);
@@ -64,43 +64,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20,
-  },
-  titulo: {
-    fontSize: 26,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-  botao: {
-    backgroundColor: "#007bff",
-    padding: 12,
-    marginVertical: 8,
-    borderRadius: 8,
-    width: "80%",
-    alignItems: "center",
-  },
-  textoBotao: {
-    color: "#fff",
-    fontSize: 16,
-  },
-  modalContainer: {
-    flex: 1,
-    padding: 20,
-    paddingTop: 50,
-  },
-  fecharBotao: {
-    backgroundColor: "#dc3545",
-    alignSelf: "flex-end",
-    padding: 8,
-    borderRadius: 5,
-  },
-  fecharTexto: {
-    color: "#fff",
-    fontWeight: "bold",
-  },
-});
+

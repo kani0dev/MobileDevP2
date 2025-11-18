@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import { styles } from "../style";
 
 export default function IMCCalculator() {
   const [peso, setPeso] = useState("");
@@ -40,17 +41,3 @@ export default function IMCCalculator() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { padding: 20, alignItems: "center" },
-  titulo: { fontSize: 20, fontWeight: "bold", marginBottom: 10 },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 5,
-    width: "80%",
-    padding: 8,
-    marginBottom: 10,
-    textAlign: "center",
-  },
-  resultado: { marginTop: 10, fontSize: 18, fontWeight: "bold" },
-});

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-
+import { styles } from "../style";
 export default function RandomQuote() {
   const frases = [
     "A persistência é o caminho do êxito.",
@@ -26,8 +26,3 @@ export default function RandomQuote() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: { padding: 20, alignItems: "center" },
-  titulo: { fontSize: 20, fontWeight: "bold", marginBottom: 10 },
-  frase: { marginTop: 20, fontSize: 16, fontStyle: "italic", textAlign: "center" },
-});
