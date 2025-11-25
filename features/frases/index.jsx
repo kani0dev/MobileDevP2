@@ -18,10 +18,10 @@ export default function RandomQuote() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Gerador de Frases</Text>
+    <View style={styles.fraseContainer}>
+      <Text style={styles.fraseTitulo }>Gerador de Frases</Text>
       <Button title="Nova frase" onPress={gerarFrase} />
-      {frase ? <Text style={styles.frase}>{frase}</Text> : null}
+      {frase ? <Text style={styles.fraseTexto}>{frase}</Text> : null}
     </View>
   );
 }

@@ -54,15 +54,15 @@ export default function TemperatureConverter() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.tempContainer}>
       <Text style={styles.titulo}>Conversor de Temperatura</Text>
 
       {/* Picker da unidade de origem */}
-      <Text style={styles.label}>De:</Text>
+      <Text style={styles.tempLabel}>De:</Text>
       <Picker
         selectedValue={unidadeOrigem}
         onValueChange={(v) => setUnidadeOrigem(v)}
-        style={styles.picker}
+        style={styles.tempPicker}
       >
         <Picker.Item label="Celsius (°C)" value="celsius" />
         <Picker.Item label="Kelvin (K)" value="kelvin" />
@@ -70,11 +70,11 @@ export default function TemperatureConverter() {
       </Picker>
 
       {/* Picker da unidade de destino */}
-      <Text style={styles.label}>Para:</Text>
+      <Text style={styles.tempLabel}>Para:</Text>
       <Picker
         selectedValue={unidadeDestino}
         onValueChange={(v) => setUnidadeDestino(v)}
-        style={styles.picker}
+        style={styles.tempPicker}
       >
         <Picker.Item label="Celsius (°C)" value="celsius" />
         <Picker.Item label="Kelvin (K)" value="kelvin" />
@@ -82,17 +82,17 @@ export default function TemperatureConverter() {
       </Picker>
 
       <TextInput
-        placeholder="Valor"
+        placeholder="digite valora pra converter"
         keyboardType="numeric"
         value={valor}
         onChangeText={setValor}
-        style={styles.input}
+        style={styles.tempInput}
       />
 
       <Button title="Converter" onPress={converterTemp} />
 
       {resultado && (
-        <Text style={styles.resultado}>
+        <Text style={styles.tempResultado}>
           Resultado: {resultado}
         </Text>
       )}

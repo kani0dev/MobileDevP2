@@ -19,24 +19,24 @@ export default function IMCCalculator() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Calculadora de IMC</Text>
+    <View style={styles.imcContainer}>
+      <Text style={styles.imcTitulo}>Calculadora de IMC</Text>
       <TextInput
         placeholder="Peso (kg)"
         keyboardType="numeric"
-        style={styles.input}
+        style={styles.imcInput}
         value={peso}
         onChangeText={setPeso}
       />
       <TextInput
         placeholder="Altura (m)"
         keyboardType="numeric"
-        style={styles.input}
+        style={styles.imcInput}
         value={altura}
         onChangeText={setAltura}
       />
       <Button title="Calcular" onPress={calcularIMC} />
-      {resultado && <Text style={styles.resultado}>IMC: {resultado}</Text>}
+      {resultado && <Text style={styles.imcResultado}>IMC: {resultado}</Text>}
     </View>
   );
 }
