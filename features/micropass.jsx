@@ -6,6 +6,9 @@ import TemperatureConverter from "./features/temperature/index.jsx"
 import RandomQuote from "./features/frases/index.jsx"
 import TodoList from "./features/todolist";""
 import { styles } from "./features/style.js";
+
+
+
 export default function Microapps() {
   const [modalVisible, setModalVisible] = useState(false);
   const [componenteAtivo, setComponenteAtivo] = useState(null);
@@ -35,7 +38,7 @@ export default function Microapps() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>🧩 MicroApps</Text>
+      <Text style={styles.titulo}>Atividade Mobile Dev</Text>
 
       {microApps.map((app, index) => (
         <TouchableOpacity
