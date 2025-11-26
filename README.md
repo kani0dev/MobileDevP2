@@ -8,4 +8,9 @@ Primeiro, instale as dependências do projeto:
 
 ```bash
 npm install
+````
+🚀 Executar no navegador (Web)
+
+Para iniciar o projeto na versão Web, rode o comando:
+```bash
 npm run web
